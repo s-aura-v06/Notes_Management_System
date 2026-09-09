@@ -1,0 +1,1855 @@
+/* =========================================================
+GLOBAL STYLES
+========================================================= */
+
+body {
+    background: #f4f7fb;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================================
+NAVBAR
+========================================================= */
+
+.navbar {
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #1d2671, #c33764) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+    font-size: 28px;
+    font-weight: 700;
+    color: white !important;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 17px;
+    font-weight: 500;
+    margin-left: 15px;
+    padding: 8px 15px !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.login-btn {
+    border: 2px solid white;
+}
+
+.register-btn {
+    background: white;
+    color: #c33764 !important;
+}
+
+.register-btn:hover {
+    background: #f1f1f1;
+}
+
+/* =========================================================
+HOME PAGE
+========================================================= */
+
+.hero-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    color: white;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* =========================================================
+ABOUT SECTION
+========================================================= */
+
+.about-section {
+    background: white;
+    padding: 35px;
+    margin-top: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-section h2 {
+    color: #1d2671;
+}
+
+/* =========================================================
+FEATURES
+========================================================= */
+
+.features-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.features-section h2 {
+    margin-bottom: 30px;
+    color: #1d2671;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* =========================================================
+LOGIN PAGE
+========================================================= */
+
+.login-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 420px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.login-box h2 {
+    text-align: center;
+    color: #1d2671;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 13px 18px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: .3s;
+}
+
+.login-box input:focus {
+    border-color: #c33764;
+    box-shadow: 0 0 8px rgba(195,55,100,.2);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg,#1d2671,#c33764);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.login-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(195,55,100,.3);
+}
+
+.login-box p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-box a {
+    color: #c33764;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+REGISTER PAGE
+========================================================= */
+
+.register-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-box {
+    width: 470px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.register-box h2 {
+    text-align: center;
+    color: #1d2671;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.register-box input {
+    width: 100%;
+    padding: 13px 18px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: .3s;
+}
+
+.register-box input:focus {
+    border-color: #c33764;
+    box-shadow: 0 0 8px rgba(195,55,100,.2);
+}
+
+.register-box button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg,#1d2671,#c33764);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.register-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(195,55,100,.3);
+}
+
+.register-box p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.register-box a {
+    color: #c33764;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-box a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(90deg,#1d2671,#c33764);
+}
+
+/* ================= DASHBOARD ================= */
+
+
+.dashboard-title {
+
+    font-size: 35px;
+
+    font-weight: 700;
+
+    color: #2c3e50;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.dashboard-subtitle {
+
+    color: #555;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+
+
+/* Welcome Card */
+
+
+.welcome-card {
+
+    background: linear-gradient(135deg, #667eea, #764ba2);
+
+    color: white;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+
+    margin-bottom: 35px;
+
+    transition: 0.3s;
+
+}
+
+
+
+.welcome-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+
+
+.welcome-card h1 {
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+}
+
+
+
+.welcome-card p {
+
+    font-size: 18px;
+
+    opacity: 0.9;
+
+}
+
+
+
+
+
+/* Dashboard Cards */
+
+
+.dashboard-card {
+
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+
+    background: white;
+
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+
+
+    transition: all 0.3s ease;
+
+
+    height: 100%;
+
+
+}
+
+
+
+.dashboard-card:hover {
+
+
+    transform: translateY(-10px);
+
+
+    box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+
+
+}
+
+
+
+
+
+/* Section Heading */
+
+
+.section-title {
+
+
+    font-size: 25px;
+
+
+    font-weight: 700;
+
+
+    color: #1d2671;
+
+
+    margin-bottom: 15px;
+
+
+}
+
+
+
+
+
+/* Dashboard Buttons */
+
+
+.dashboard-btn {
+
+
+    padding: 12px 22px;
+
+
+    border-radius: 30px;
+
+
+    font-weight: 600;
+
+
+    text-decoration: none;
+
+
+    display: inline-block;
+
+
+    margin: 6px;
+
+
+    transition: all 0.3s ease;
+
+
+}
+
+
+
+
+
+.dashboard-btn:hover {
+
+
+    transform: translateY(-4px) scale(1.03);
+
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+
+
+}
+
+
+
+
+
+/* Category Box */
+
+
+.category-box {
+
+
+    padding: 15px 20px;
+
+
+    border-radius: 15px;
+
+
+    background: #f8f9fa;
+
+
+    display: flex;
+
+
+    justify-content: space-between;
+
+
+    align-items: center;
+
+
+    font-size: 17px;
+
+
+    font-weight: 600;
+
+
+    color: #333;
+
+
+    transition: all 0.3s ease;
+
+
+}
+
+
+
+
+
+.category-box span {
+
+
+    cursor: pointer;
+
+
+    font-size: 18px;
+
+
+}
+
+
+
+
+
+.category-box:hover {
+
+
+    background: #e9ecef;
+
+
+    transform: translateX(8px);
+
+
+}
+
+
+
+
+
+/* Add Category Button */
+
+
+.category-add-btn {
+
+
+    width: 100%;
+
+
+    padding: 12px;
+
+
+    border-radius: 15px;
+
+
+    font-weight: 600;
+
+
+}
+
+
+
+
+
+/* Mobile Responsive */
+
+
+@media(max-width:768px){
+
+
+    .dashboard-title {
+
+
+        font-size: 28px;
+
+    }
+
+
+
+    .welcome-card h1 {
+
+
+        font-size: 30px;
+
+    }
+
+
+
+    .dashboard-card {
+
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+}
+
+/* ================= Recent Notes DASHBOARD================= */
+
+.dashboard-card h4{
+    color:#4f46e5;
+    font-weight:700;
+}
+
+.dashboard-card p{
+    color:#555;
+}
+
+.badge{
+    font-size:14px;
+    padding:8px 12px;
+    border-radius:20px;
+}
+
+.btn-sm{
+    border-radius:10px;
+}
+
+
+/* ================= CREATE NOTE ================= */
+
+/* ==========================
+   Create Note Page
+========================== */
+
+body{
+    background:linear-gradient(135deg,#eef2ff,#f8f9ff);
+}
+
+/* Main Container */
+
+.create-note-container{
+    max-width:850px;
+    margin:50px auto;
+    padding:0 15px;
+}
+
+/* Card */
+
+.note-card{
+    background:#ffffff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    border:1px solid #e9ecef;
+    transition:.3s;
+}
+
+.note-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+/* Heading */
+
+.note-card h2{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    color:#4f46e5;
+    margin-bottom:30px;
+}
+
+/* Labels */
+
+.note-card .form-label{
+    font-weight:600;
+    color:#444;
+    margin-bottom:8px;
+}
+
+/* Inputs */
+
+.note-card .form-control,
+.note-card .form-select{
+    border:2px solid #dee2e6;
+    border-radius:12px;
+    padding:12px 15px;
+    transition:.3s;
+    font-size:15px;
+}
+
+/* Focus */
+
+.note-card .form-control:focus,
+.note-card .form-select:focus{
+    border-color:#4f46e5;
+    box-shadow:0 0 12px rgba(79,70,229,.20);
+}
+
+/* Textarea */
+
+.note-card textarea.form-control{
+    min-height:220px;
+    resize:vertical;
+}
+
+/* File Upload */
+
+.note-card input[type=file]{
+    padding:12px;
+    background:#f8f9fa;
+}
+
+/* Checkbox */
+
+.form-check-input:checked{
+    background-color:#4f46e5;
+    border-color:#4f46e5;
+}
+
+/* Buttons */
+
+.btn-primary{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    border:none;
+    border-radius:12px;
+    padding:13px;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(79,70,229,.35);
+}
+
+.btn-outline-secondary{
+    border-radius:12px;
+    padding:13px;
+    font-weight:600;
+}
+
+.btn-outline-secondary:hover{
+    transform:translateY(-3px);
+}
+
+/* Small Text */
+
+.text-muted{
+    font-size:13px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.create-note-container{
+    margin:25px auto;
+}
+
+.note-card{
+    padding:22px;
+}
+
+.note-card h2{
+    font-size:26px;
+}
+
+}
+/* ================= VIEW NOTE ================= */
+
+.dashboard-card h2{
+    color:#4f46e5;
+    font-weight:700;
+}
+
+.dashboard-card h5{
+    color:#333;
+    margin-top:20px;
+    font-weight:600;
+}
+
+.dashboard-card p{
+    line-height:1.8;
+    font-size:16px;
+}
+
+.dashboard-card .btn{
+    border-radius:12px;
+    margin-right:8px;
+    margin-top:8px;
+}
+
+.btn-warning{
+    color:#fff;
+    font-weight:600;
+}
+
+.btn-outline-warning{
+    font-weight:600;
+}
+
+.btn-warning:hover,
+.btn-outline-warning:hover{
+    transform:translateY(-2px);
+    transition:.3s;
+}
+
+/* ==========================================================
+                    FAVORITES PAGE CSS
+        Modern UI - Matches Dashboard & Create Note
+========================================================== */
+
+/* ================= PAGE BACKGROUND ================= */
+
+.favorites-container{
+    max-width:1300px;
+    margin:45px auto;
+    padding:0 18px;
+}
+
+/* ================= HEADER ================= */
+
+.favorite-header{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:#fff;
+    padding:40px;
+    border-radius:25px;
+    margin-bottom:35px;
+    box-shadow:0 15px 35px rgba(79,70,229,.25);
+    position:relative;
+    overflow:hidden;
+}
+
+.favorite-header::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:rgba(255,255,255,.08);
+    border-radius:50%;
+    top:-120px;
+    right:-80px;
+}
+
+.favorite-header h2{
+    font-size:38px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.favorite-header p{
+    opacity:.9;
+    font-size:17px;
+}
+
+/* ================= GRID ================= */
+
+.favorite-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:25px;
+}
+
+/* ================= CARD ================= */
+
+.favorite-card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.10);
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.favorite-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 38px rgba(0,0,0,.18);
+
+}
+
+/* ================= TOP BAR ================= */
+
+.favorite-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.favorite-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#f59e0b,#facc15);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:26px;
+
+    color:#fff;
+
+    box-shadow:0 8px 18px rgba(245,158,11,.35);
+
+}
+
+/* ================= TITLE ================= */
+
+.favorite-card h4{
+
+    color:#4f46e5;
+
+    font-weight:700;
+
+    font-size:24px;
+
+    margin-bottom:15px;
+
+}
+
+/* ================= CONTENT ================= */
+
+.favorite-content{
+
+    color:#555;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    min-height:95px;
+
+}
+
+/* ================= TAGS ================= */
+
+.favorite-tags{
+
+    margin-top:18px;
+
+}
+
+.favorite-tag{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin:4px;
+
+}
+
+/* ================= DATE ================= */
+
+.favorite-date{
+
+    margin-top:18px;
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+/* ================= BUTTON AREA ================= */
+
+.favorite-actions{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ================= BUTTON ================= */
+
+.favorite-btn{
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:11px 18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+}
+
+.favorite-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* VIEW */
+
+.favorite-view{
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    color:#fff;
+
+}
+
+.favorite-view:hover{
+
+    box-shadow:0 10px 20px rgba(79,70,229,.35);
+
+}
+
+/* REMOVE */
+
+.favorite-remove{
+
+    background:#f59e0b;
+
+    color:#fff;
+
+}
+
+.favorite-remove:hover{
+
+    background:#d97706;
+
+}
+
+/* ================= EMPTY STATE ================= */
+
+.empty-favorite{
+
+    text-align:center;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    padding:70px 30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.empty-favorite h3{
+
+    color:#4f46e5;
+
+    margin-top:20px;
+
+    font-weight:700;
+
+}
+
+.empty-favorite p{
+
+    color:#777;
+
+}
+
+.empty-icon{
+
+    font-size:75px;
+
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#7c3aed;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
+/* ================= BADGE ================= */
+
+.favorite-badge{
+
+    background:#facc15;
+
+    color:#000;
+
+    padding:8px 15px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ================= ANIMATION ================= */
+
+.favorite-card{
+
+    animation:fadeUp .6s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+.favorite-header h2{
+
+font-size:32px;
+
+}
+
+.favorite-card{
+
+padding:22px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.favorite-header{
+
+padding:28px;
+
+}
+
+.favorite-header h2{
+
+font-size:28px;
+
+}
+
+.favorite-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.favorite-actions{
+
+flex-direction:column;
+
+}
+
+.favorite-btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.favorite-content{
+
+min-height:auto;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.favorite-header{
+
+border-radius:18px;
+
+}
+
+.favorite-card{
+
+border-radius:18px;
+
+}
+
+.favorite-icon{
+
+width:48px;
+
+height:48px;
+
+font-size:22px;
+
+}
+
+.favorite-card h4{
+
+font-size:20px;
+
+}
+
+.favorite-content{
+
+font-size:14px;
+
+}
+
+.favorite-tag{
+
+font-size:12px;
+
+}
+
+}
+
+/* =========================================================
+   DARK MODE THEME
+   Safe Version
+========================================================= */
+
+/* ================= BODY ================= */
+
+body.dark-mode{
+    background:#121212;
+    color:#f1f1f1;
+}
+
+/* ================= NAVBAR ================= */
+
+body.dark-mode .navbar{
+    background:linear-gradient(90deg,#1d2671,#c33764)!important;
+}
+
+/* ================= HOME PAGE ================= */
+
+body.dark-mode .about-section,
+body.dark-mode .feature-card{
+    background:#1e1e1e;
+    color:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+
+body.dark-mode .about-section h1,
+body.dark-mode .about-section h2,
+body.dark-mode .about-section h3,
+body.dark-mode .about-section h4,
+body.dark-mode .about-section h5,
+body.dark-mode .about-section p,
+body.dark-mode .feature-card h1,
+body.dark-mode .feature-card h2,
+body.dark-mode .feature-card h3,
+body.dark-mode .feature-card h4,
+body.dark-mode .feature-card h5,
+body.dark-mode .feature-card p{
+    color:#fff;
+}
+
+/* ================= LOGIN ================= */
+
+body.dark-mode .login-box,
+body.dark-mode .login-card{
+    background:#1e1e1e;
+    color:#fff;
+}
+
+body.dark-mode .login-box h1,
+body.dark-mode .login-box h2,
+body.dark-mode .login-box h3,
+body.dark-mode .login-box label,
+body.dark-mode .login-box p,
+body.dark-mode .login-card h1,
+body.dark-mode .login-card h2,
+body.dark-mode .login-card h3,
+body.dark-mode .login-card label,
+body.dark-mode .login-card p{
+    color:#fff !important;
+}
+
+/* ================= REGISTER ================= */
+
+body.dark-mode .register-box,
+body.dark-mode .register-card{
+    background:#1e1e1e;
+    color:#fff;
+}
+
+body.dark-mode .register-box h1,
+body.dark-mode .register-box h2,
+body.dark-mode .register-box h3,
+body.dark-mode .register-box label,
+body.dark-mode .register-box p,
+body.dark-mode .register-card h1,
+body.dark-mode .register-card h2,
+body.dark-mode .register-card h3,
+body.dark-mode .register-card label,
+body.dark-mode .register-card p{
+    color:#fff !important;
+}
+
+/* ================= FIX FOR SUBTITLE ================= */
+
+body.dark-mode .text-muted,
+body.dark-mode .text-secondary{
+    color:#d1d5db !important;
+}
+
+body.dark-mode small,
+body.dark-mode .small{
+    color:#d1d5db !important;
+}
+
+/* ================= INPUTS ================= */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode .form-control,
+body.dark-mode .form-select{
+    background:#2b2b2b;
+    color:#fff;
+    border:1px solid #555;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder{
+    color:#bbb;
+}
+
+/* ================= DASHBOARD ================= */
+
+body.dark-mode .dashboard-card{
+    background:#1e1e1e;
+    color:#fff;
+    box-shadow:0 10px 25px rgba(0,0,0,.6);
+}
+
+body.dark-mode .dashboard-card h1,
+body.dark-mode .dashboard-card h2,
+body.dark-mode .dashboard-card h3,
+body.dark-mode .dashboard-card h4,
+body.dark-mode .dashboard-card h5,
+body.dark-mode .dashboard-card p,
+body.dark-mode .dashboard-card span{
+    color:#fff;
+}
+
+/* ================= NOTE CARD ================= */
+
+body.dark-mode .note-card,
+body.dark-mode .note-box,
+body.dark-mode .note-item{
+    background:#252525;
+    color:#fff;
+    border-color:#333;
+}
+
+body.dark-mode .note-card h1,
+body.dark-mode .note-card h2,
+body.dark-mode .note-card h3,
+body.dark-mode .note-card h4,
+body.dark-mode .note-card h5,
+body.dark-mode .note-card p,
+body.dark-mode .note-box h5,
+body.dark-mode .note-box p,
+body.dark-mode .note-item h5,
+body.dark-mode .note-item p{
+    color:#fff;
+}
+
+/* ================= CATEGORY ================= */
+
+body.dark-mode .category-box{
+    background:#2a2a2a;
+    color:#fff;
+}
+
+body.dark-mode .category-box:hover{
+    background:#333;
+}
+
+/* ================= FAVORITES ================= */
+
+body.dark-mode .favorite-card{
+    background:#1e1e1e;
+    border-color:#333;
+    color:#fff;
+}
+
+body.dark-mode .favorite-content{
+    color:#ddd;
+}
+
+body.dark-mode .favorite-tag{
+    background:#333;
+    color:#ddd;
+}
+
+body.dark-mode .empty-favorite{
+    background:#1e1e1e;
+    color:#fff;
+}
+
+/* ================= BUTTON ================= */
+
+body.dark-mode .btn-outline-secondary{
+    color:#fff;
+    border-color:#aaa;
+}
+
+body.dark-mode .btn-outline-secondary:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* ================= TABLE ================= */
+
+body.dark-mode table{
+    color:#fff;
+}
+
+body.dark-mode .table{
+    --bs-table-bg:#1e1e1e;
+    --bs-table-color:#fff;
+}
+
+/* ================= FOOTER ================= */
+
+body.dark-mode footer{
+    background:linear-gradient(90deg,#000,#434343);
+}
+
+/* ================= SCROLLBAR ================= */
+
+body.dark-mode::-webkit-scrollbar-track{
+    background:#222;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb{
+    background:#7c3aed;
+}
+
+/* =====================================================
+              PROFESSIONAL PROFILE IMAGE
+===================================================== */
+
+
+.profile-page{
+
+    min-height:80vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+}
+
+
+
+
+.profile-card{
+
+    width:600px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+
+
+.profile-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 25px 55px rgba(0,0,0,.2);
+
+}
+
+
+
+
+/* ================= IMAGE ================= */
+
+
+.profile-image-area{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.profile-image-wrapper{
+
+
+    width:160px;
+
+    height:160px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:6px solid #4f46e5;
+
+    box-shadow:0 10px 25px rgba(79,70,229,.4);
+
+}
+
+
+
+.profile-image{
+
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.default-profile{
+
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:70px;
+
+    color:white;
+
+}
+
+
+
+
+/* ================= CHANGE PHOTO BUTTON ================= */
+
+
+.change-photo-btn{
+
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.change-photo-btn:hover{
+
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(79,70,229,.35);
+
+}
+
+
+
+
+/* ================= PROFILE TEXT ================= */
+
+
+.profile-info h2{
+
+
+    font-size:35px;
+
+    font-weight:700;
+
+    color:#4f46e5;
+
+}
+
+
+
+.profile-role{
+
+
+    color:#777;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+/* ================= DETAILS BOX ================= */
+
+
+.profile-details-box{
+
+    text-align:left;
+
+}
+
+
+
+.detail-item{
+
+
+    background:#f8f9ff;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.detail-item span{
+
+
+    color:#4f46e5;
+
+    font-weight:700;
+
+}
+
+
+
+.detail-item p{
+
+
+    margin:5px 0 0;
+
+    color:#333;
+
+    font-size:16px;
+
+}
+
+
+
+
+/* ================= EDIT BUTTON ================= */
+
+
+.edit-profile-btn{
+
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:13px 35px;
+
+    border-radius:30px;
+
+    background:linear-gradient(135deg,#1d2671,#c33764);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+
+/* ================= DARK MODE ================= */
+
+
+body.dark-mode .profile-card{
+
+    background:#1e1e1e;
+
+}
+
+
+
+body.dark-mode .detail-item{
+
+    background:#2b2b2b;
+
+}
+
+
+
+body.dark-mode .detail-item p{
+
+    color:white;
+
+}
+
+/* ================= FIXED NAVBAR ================= */
+
+body {
+
+    padding-top: 75px;
+
+}
+
+
+
+.navbar {
+
+    z-index: 1050;
+
+}
+
+/* sticj=ky not stocky */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body > .container {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto !important;
+}

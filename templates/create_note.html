@@ -1,0 +1,303 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Create Note
+{% endblock %}
+
+{% block content %}
+
+<!-- Quill Rich Text Editor CSS -->
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+      rel="stylesheet">
+
+
+<div class="create-note-container">
+
+    <div class="note-card">
+
+        <h2 class="text-center mb-4">
+            📝 Create New Note
+        </h2>
+
+
+        <form method="POST"
+              enctype="multipart/form-data"
+              id="createNoteForm">
+
+
+            <!-- Title -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Note Title
+                </label>
+
+                <input type="text"
+                       name="title"
+                       class="form-control"
+                       placeholder="Enter note title..."
+                       required>
+
+            </div>
+
+
+            <!-- Category -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Category
+                </label>
+
+                <select name="category_id"
+                        class="form-select"
+                        required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    {% for category in categories %}
+
+                    <option value="{{ category[0] }}">
+                        📂 {{ category[1] }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <!-- Content -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Content
+                </label>
+
+
+                <!-- Hidden textarea -->
+                <!-- This contains formatted HTML -->
+
+                <textarea name="content"
+                          id="content"
+                          style="display:none;"></textarea>
+
+
+                <!-- Quill Editor -->
+
+                <div id="editor"></div>
+
+            </div>
+
+
+            <!-- Tags -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Tags
+                </label>
+
+                <input type="text"
+                       name="tags"
+                       class="form-control"
+                       placeholder="Example: Python, Flask, HTML">
+
+            </div>
+
+
+            <!-- Attachment -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Attachment
+                </label>
+
+                <input type="file"
+                       name="file"
+                       class="form-control">
+
+                <small class="text-muted">
+                    Upload Image, PDF, Word, ZIP or any file.
+                </small>
+
+            </div>
+
+
+            <!-- Favorite -->
+
+            <div class="form-check mb-4">
+
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="favorite"
+                       value="1"
+                       id="favorite">
+
+                <label class="form-check-label"
+                       for="favorite">
+
+                    ⭐ Mark as Favorite
+
+                </label>
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="d-grid gap-2">
+
+                <button type="submit"
+                        class="btn btn-primary btn-lg">
+
+                    💾 Save Note
+
+                </button>
+
+
+                <button type="reset"
+                        class="btn btn-outline-secondary">
+
+                    🔄 Reset
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- Quill JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+
+<script>
+
+/* ==========================================
+   QUILL RICH TEXT EDITOR
+   ========================================== */
+
+const quill = new Quill('#editor', {
+
+    theme: 'snow',
+
+    placeholder: 'Write your note here...',
+
+    modules: {
+
+        toolbar: [
+
+            /* Heading */
+
+            [
+                {
+                    'header': [1, 2, 3, false]
+                }
+            ],
+
+
+            /* Text Formatting */
+
+            [
+                'bold',
+                'italic',
+                'underline'
+            ],
+
+
+            /* Text Color / Highlight */
+
+            [
+                {
+                    'color': []
+                },
+                {
+                    'background': []
+                }
+            ],
+
+
+            /* Lists */
+
+            [
+                {
+                    'list': 'ordered'
+                },
+                {
+                    'list': 'bullet'
+                }
+            ],
+
+
+            /* Alignment */
+
+            [
+                {
+                    'align': []
+                }
+            ],
+
+
+            /* Link */
+
+            [
+                'link'
+            ]
+
+        ]
+
+    }
+
+});
+
+
+
+/* ==========================================
+   SAVE FORMATTED CONTENT BEFORE SUBMIT
+   ========================================== */
+
+const form = document.getElementById('createNoteForm');
+
+form.addEventListener('submit', function () {
+
+    const content = document.getElementById('content');
+
+    content.value = quill.root.innerHTML;
+
+});
+
+
+
+/* ==========================================
+   RESET EDITOR
+   ========================================== */
+
+form.addEventListener('reset', function () {
+
+    setTimeout(function () {
+
+        quill.setContents([]);
+
+    }, 0);
+
+});
+
+</script>
+
+
+{% endblock %}

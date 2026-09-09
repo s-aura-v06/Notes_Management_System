@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Profile
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="profile-page">
+
+
+    <div class="profile-card">
+
+
+        <form method="POST" enctype="multipart/form-data">
+
+
+
+            <!-- ================= PROFILE IMAGE ================= -->
+
+
+            <div class="profile-image-area">
+
+
+                <div class="profile-image-wrapper">
+
+
+                    {% if user["profile_image"] %}
+
+
+                        <img 
+                        src="{{ url_for('static', filename='uploads/profile/' + user['profile_image']) }}"
+                        class="profile-image"
+                        alt="Profile Image">
+
+
+                    {% else %}
+
+
+                        <div class="default-profile">
+
+                            👤
+
+                        </div>
+
+
+                    {% endif %}
+
+
+                </div>
+
+
+
+
+                <label class="change-photo-btn">
+
+
+                    📷 Change Photo
+
+
+                    <input 
+                    type="file"
+                    name="profile_image"
+                    accept="image/*"
+                    hidden>
+
+
+                </label>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- ================= USER DETAILS ================= -->
+
+
+            <div class="profile-info">
+
+
+
+                <h2>
+
+                    {{ user["username"] }}
+
+                </h2>
+
+
+
+
+                <p class="profile-role">
+
+                    Notes Management System User
+
+                </p>
+
+
+
+
+
+
+
+                <div class="profile-details-box">
+
+
+
+
+
+                    <div class="detail-item">
+
+
+                        <span>
+                            👤 Username
+                        </span>
+
+
+                        <input 
+                        type="text"
+                        name="username"
+                        value="{{ user['username'] }}">
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="detail-item">
+
+
+                        <span>
+                            📧 Email
+                        </span>
+
+
+                        <input 
+                        type="email"
+                        name="email"
+                        value="{{ user['email'] }}">
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="detail-item">
+
+
+                        <span>
+                            📅 Account Created
+                        </span>
+
+
+                        <p>
+
+                            {{ user["created_at"] }}
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <button 
+                type="submit"
+                class="edit-profile-btn">
+
+
+                    💾 Save Changes
+
+
+                </button>
+
+
+                <a href="{{ url_for('change_password') }}"
+                class="edit-profile-btn"
+                style="display: inline-block; text-decoration: none; margin-top: 12px;">
+                🔐 Change Password
+                </a>
+
+
+
+
+            </div>
+
+
+
+
+        </form>
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Edit Category
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="container mt-4">
+
+
+    <div class="dashboard-card">
+
+
+        <h2 class="section-title text-center">
+
+            ✏️ Edit Category
+
+        </h2>
+
+
+        <hr>
+
+
+        <form method="POST">
+
+
+
+            <div class="mb-3">
+
+
+                <label class="form-label">
+
+                    Category Name
+
+                </label>
+
+
+
+                <input 
+                    type="text"
+                    name="category_name"
+                    class="form-control"
+                    value="{{ category['category_name'] }}"
+                    required
+                >
+
+
+            </div>
+
+
+
+            <button type="submit" 
+                    class="btn btn-primary">
+
+                💾 Update Category
+
+            </button>
+
+
+
+            <a href="{{ url_for('dashboard') }}"
+               class="btn btn-secondary">
+
+                Cancel
+
+            </a>
+
+
+
+        </form>
+
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,359 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}
+View Note
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-card">
+
+    <!-- ================= NOTE TITLE ================= -->
+
+    <h2>
+        📝 {{ note["title"] }}
+    </h2>
+
+    <hr>
+
+
+    <!-- ================= NOTE CONTENT ================= -->
+
+    <h5>
+        📄 Content
+    </h5>
+
+    <div class="note-content">
+
+        {{ note["content"] | safe }}
+
+    </div>
+
+
+    <br>
+
+
+    <!-- ================= TAGS ================= -->
+
+    {% if note["tags"] %}
+
+    <p>
+
+        🏷 <strong>Tags:</strong>
+
+        {{ note["tags"] }}
+
+    </p>
+
+    {% endif %}
+
+
+    <!-- ================= DATE ================= -->
+
+    <p>
+
+        📅 <strong>Created:</strong>
+
+        {{ note["created_at"] }}
+
+    </p>
+
+
+    {% if note["updated_at"] %}
+
+    <p>
+
+        🔄 <strong>Updated:</strong>
+
+        {{ note["updated_at"] }}
+
+    </p>
+
+    {% endif %}
+
+
+    <hr>
+
+
+    <!-- ================= ATTACHMENT ================= -->
+
+    <h5>
+        📎 Attachment
+    </h5>
+
+
+    {% if attachment %}
+
+    <p>
+
+        📄 <strong>File Name:</strong>
+
+        {{ attachment["file_name"] }}
+
+    </p>
+
+
+    {% if attachment["file_type"] %}
+
+    <p>
+
+        📋 <strong>File Type:</strong>
+
+        {{ attachment["file_type"] }}
+
+    </p>
+
+    {% endif %}
+
+
+    <a href="{{ url_for(
+        'uploaded_file',
+        filename=attachment['file_name']
+    ) }}"
+       target="_blank"
+       class="btn btn-success">
+
+        📂 Open Uploaded File
+
+    </a>
+
+
+    {% else %}
+
+    <p>
+        No File Uploaded
+    </p>
+
+    {% endif %}
+
+
+    <hr>
+
+
+    <!-- ================= ACTION BUTTONS ================= -->
+
+    <div class="d-flex gap-2 flex-wrap">
+
+
+        <!-- EDIT -->
+
+        <a href="{{ url_for(
+            'edit_note',
+            note_id=note['note_id']
+        ) }}"
+           class="btn btn-primary">
+
+            ✏️ Edit Note
+
+        </a>
+
+
+        <!-- DELETE -->
+
+        <a href="{{ url_for(
+            'delete_note',
+            note_id=note['note_id']
+        ) }}"
+           class="btn btn-danger"
+           onclick="return confirm('Delete this note?')">
+
+            🗑 Delete Note
+
+        </a>
+
+
+        <!-- BACK -->
+
+        <a href="{{ url_for('dashboard') }}"
+           class="btn btn-secondary">
+
+            ⬅ Back
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- RICH TEXT DISPLAY CSS -->
+<!-- ================================================= -->
+
+<style>
+
+    /* ================= NOTE CONTENT ================= */
+
+    .note-content {
+
+        font-size: 16px;
+        line-height: 1.8;
+
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+
+    }
+
+
+    /* ================= PARAGRAPHS ================= */
+
+    .note-content p {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    /* ================= HEADINGS ================= */
+
+    .note-content h1 {
+
+        font-size: 2rem;
+        font-weight: 700;
+
+        margin-top: 20px;
+        margin-bottom: 12px;
+
+    }
+
+
+    .note-content h2 {
+
+        font-size: 1.6rem;
+        font-weight: 700;
+
+        margin-top: 18px;
+        margin-bottom: 10px;
+
+    }
+
+
+    .note-content h3 {
+
+        font-size: 1.3rem;
+        font-weight: 700;
+
+        margin-top: 16px;
+        margin-bottom: 8px;
+
+    }
+
+
+    /* ================= LISTS ================= */
+
+    .note-content ul,
+    .note-content ol {
+
+        padding-left: 30px;
+        margin-bottom: 15px;
+
+    }
+
+
+    .note-content li {
+
+        margin-bottom: 5px;
+
+    }
+
+
+    /* ================= LINKS ================= */
+
+    .note-content a {
+
+        text-decoration: underline;
+
+        cursor: pointer;
+
+    }
+
+
+    /* ================= HIGHLIGHT ================= */
+
+    .note-content span[style*="background-color"] {
+
+        padding: 2px 4px;
+
+        border-radius: 3px;
+
+    }
+
+
+    /* ================= ALIGNMENT ================= */
+
+    .note-content [style*="text-align:center"] {
+
+        text-align: center;
+
+    }
+
+
+    .note-content [style*="text-align: center"] {
+
+        text-align: center;
+
+    }
+
+
+    .note-content [style*="text-align:right"] {
+
+        text-align: right;
+
+    }
+
+
+    .note-content [style*="text-align: right"] {
+
+        text-align: right;
+
+    }
+
+
+    .note-content [style*="text-align:justify"] {
+
+        text-align: justify;
+
+    }
+
+
+    .note-content [style*="text-align: justify"] {
+
+        text-align: justify;
+
+    }
+
+
+    /* ================= ATTACHMENT ================= */
+
+    .attachment-box {
+
+        padding: 15px;
+
+        border: 1px solid #ddd;
+
+        border-radius: 10px;
+
+    }
+
+
+    /* ================= DARK MODE ================= */
+
+    body.dark-mode .note-content {
+
+        color: inherit;
+
+    }
+
+
+    body.dark-mode .attachment-box {
+
+        border-color: #555;
+
+    }
+
+</style>
+
+
+{% endblock %}
+```

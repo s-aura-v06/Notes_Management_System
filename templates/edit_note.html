@@ -1,0 +1,399 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}
+Edit Note
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= QUILL CSS ================= -->
+
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+      rel="stylesheet">
+
+
+<!-- ================= CREATE NOTE STYLE CONTAINER ================= -->
+
+<div class="create-note-container">
+
+    <div class="note-card">
+
+
+        <!-- ================= TITLE ================= -->
+
+        <h2 class="text-center mb-4">
+            ✏️ Edit Note
+        </h2>
+
+
+        <!-- ================= FORM ================= -->
+
+        <form method="POST"
+              enctype="multipart/form-data"
+              id="editNoteForm">
+
+
+            <!-- ================= NOTE TITLE ================= -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Note Title
+                </label>
+
+                <input type="text"
+                       name="title"
+                       class="form-control"
+                       value="{{ note['title'] }}"
+                       placeholder="Enter note title..."
+                       required>
+
+            </div>
+
+
+            <!-- ================= CATEGORY ================= -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Category
+                </label>
+
+                <select name="category_id"
+                        class="form-select"
+                        required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+
+                    {% for category in categories %}
+
+                    <option value="{{ category['category_id'] }}"
+                        {% if category['category_id'] == note['category_id'] %}
+                            selected
+                        {% endif %}>
+
+                        📂 {{ category['category_name'] }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <!-- ================= CONTENT ================= -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Content
+                </label>
+
+
+                <!-- Hidden textarea -->
+
+                <textarea name="content"
+                          id="content"
+                          style="display: none;"></textarea>
+
+
+                <!-- Quill Editor -->
+
+                <div id="editor"></div>
+
+            </div>
+
+
+            <!-- ================= TAGS ================= -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Tags
+                </label>
+
+                <input type="text"
+                       name="tags"
+                       class="form-control"
+                       value="{{ note['tags'] or '' }}"
+                       placeholder="Example: Python, Flask, HTML">
+
+            </div>
+
+
+            <!-- ================= ATTACHMENT ================= -->
+
+            <div class="mb-3">
+
+                <label class="form-label fw-bold">
+                    Replace Attachment
+                </label>
+
+                <input type="file"
+                       name="file"
+                       class="form-control">
+
+                <small class="text-muted">
+                    Leave empty to keep current attachment.
+                </small>
+
+            </div>
+
+
+            <!-- ================= FAVORITE ================= -->
+
+            <div class="form-check mb-4">
+
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="favorite"
+                       value="1"
+                       id="favorite"
+
+                       {% if note['is_favorite'] == 1 %}
+                           checked
+                       {% endif %}>
+
+
+                <label class="form-check-label"
+                       for="favorite">
+
+                    ⭐ Mark as Favorite
+
+                </label>
+
+            </div>
+
+
+            <!-- ================= BUTTONS ================= -->
+
+            <div class="d-grid gap-2">
+
+                <button type="submit"
+                        class="btn btn-primary btn-lg"
+                        id="updateBtn">
+
+                    💾 Update Note
+
+                </button>
+
+
+                <a href="{{ url_for(
+                    'view_note',
+                    note_id=note['note_id']
+                ) }}"
+                   class="btn btn-outline-secondary">
+
+                    ❌ Cancel
+
+                </a>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     EXISTING NOTE CONTENT
+     ========================================================= -->
+
+<script type="application/json"
+        id="existing-content">{{ note['content'] | tojson }}</script>
+
+
+
+<!-- ================= QUILL JS ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+
+
+<script>
+
+/* ==========================================
+   INITIALIZE QUILL
+   ========================================== */
+
+const quill = new Quill("#editor", {
+
+    theme: "snow",
+
+    placeholder: "Write your note here...",
+
+    modules: {
+
+        toolbar: [
+
+            /* Heading */
+
+            [
+                {
+                    header: [1, 2, 3, false]
+                }
+            ],
+
+
+            /* Bold / Italic / Underline */
+
+            [
+                "bold",
+                "italic",
+                "underline"
+            ],
+
+
+            /* Text Color / Highlight */
+
+            [
+                {
+                    color: []
+                },
+                {
+                    background: []
+                }
+            ],
+
+
+            /* Lists */
+
+            [
+                {
+                    list: "ordered"
+                },
+                {
+                    list: "bullet"
+                }
+            ],
+
+
+            /* Alignment */
+
+            [
+                {
+                    align: []
+                }
+            ],
+
+
+            /* Link */
+
+            [
+                "link"
+            ]
+
+        ]
+
+    }
+
+});
+
+
+
+/* ==========================================
+   LOAD EXISTING CONTENT
+   ========================================== */
+
+const existingElement =
+    document.getElementById("existing-content");
+
+
+let existingContent = "";
+
+
+try {
+
+    existingContent =
+        JSON.parse(existingElement.textContent);
+
+}
+
+catch (error) {
+
+    console.error(
+        "Could not load existing note content:",
+        error
+    );
+
+}
+
+
+/* Load existing content into Quill */
+
+if (existingContent) {
+
+    quill.clipboard.dangerouslyPasteHTML(
+        existingContent
+    );
+
+}
+
+
+
+/* ==========================================
+   FORM SUBMIT
+   ========================================== */
+
+const form =
+    document.getElementById("editNoteForm");
+
+
+form.addEventListener("submit", function (event) {
+
+
+    const content =
+        document.getElementById("content");
+
+
+    /* Get formatted HTML */
+
+    const formattedContent =
+        quill.root.innerHTML.trim();
+
+
+    /* Check empty editor */
+
+    if (
+        formattedContent === "" ||
+        formattedContent === "<p><br></p>"
+    ) {
+
+        event.preventDefault();
+
+        alert(
+            "Please write some content in your note."
+        );
+
+        return;
+
+    }
+
+
+    /* Put formatted HTML into textarea */
+
+    content.value =
+        formattedContent;
+
+
+    console.log(
+        "Updating note..."
+    );
+
+});
+
+</script>
+
+
+{% endblock %}
+```

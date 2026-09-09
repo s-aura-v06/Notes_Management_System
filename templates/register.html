@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <div class="card shadow-lg p-4 register-card">
+
+        <div class="text-center mb-4">
+            <h2>Create Your Account</h2>
+            <p class="text-muted">
+                Join Personal Knowledge & Notes Management System
+            </p>
+        </div>
+
+        <form action="{{ url_for('register') }}" method="POST">
+
+            <!-- Username -->
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    placeholder="Enter Username"
+                    required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Enter Email"
+                    required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+
+                <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    placeholder="Enter Password"
+                    required>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-4">
+                <label class="form-label">Confirm Password</label>
+
+                <input
+                    type="password"
+                    class="form-control"
+                    name="confirm_password"
+                    placeholder="Confirm Password"
+                    required>
+            </div>
+
+            <!-- Register Button -->
+            <div class="d-grid">
+
+                <button type="submit" class="btn btn-primary">
+                    Create Account
+                </button>
+
+            </div>
+
+        </form>
+
+        <hr>
+
+        <p class="text-center mb-0">
+
+            Already have an account?
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

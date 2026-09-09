@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+database/database.db
+uploads/
+static/uploads/profile/
+*.db
+*.sqlite
