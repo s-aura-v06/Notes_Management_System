@@ -276,7 +276,6 @@ def login():
 
 
 
-```python
 # ================= FORGOT PASSWORD =================
 
 @app.route("/forgot_password", methods=["GET", "POST"])
@@ -391,7 +390,6 @@ Notes Management System
         return redirect(url_for("forgot_password"))
 
     return render_template("forgot_password.html")
-```
 
 
 # ================= RESET PASSWORD =================
