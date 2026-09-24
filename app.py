@@ -14,7 +14,6 @@ app = Flask(__name__)
 app.secret_key = "notes_management_secret"
 
 
-
 # ================= UPLOAD CONFIG =================
 
 app.config["UPLOAD_FOLDER"] = "uploads"
