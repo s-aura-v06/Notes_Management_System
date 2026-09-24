@@ -4,7 +4,7 @@ import sqlite3
 import os
 import secrets
 from datetime import datetime, timedelta
-import smtplib
+import resend
 from email.message import EmailMessage
 
 
@@ -277,6 +277,7 @@ def login():
 
 
 
+```python
 # ================= FORGOT PASSWORD =================
 
 @app.route("/forgot_password", methods=["GET", "POST"])
@@ -334,12 +335,11 @@ def forgot_password():
             _external=True
         )
 
-        # ================= SEND EMAIL =================
+        # ================= SEND EMAIL USING RESEND =================
 
-        sender_email = os.environ.get("MAIL_USERNAME")
-        sender_password = os.environ.get("MAIL_PASSWORD")
+        resend_api_key = os.environ.get("RESEND_API_KEY")
 
-        if not sender_email or not sender_password:
+        if not resend_api_key:
 
             flash(
                 "Email service is not configured. Please try again later.",
@@ -350,14 +350,13 @@ def forgot_password():
 
         try:
 
-            message = EmailMessage()
+            resend.api_key = resend_api_key
 
-            message["Subject"] = "Notes Management System - Password Reset"
-            message["From"] = sender_email
-            message["To"] = email
-
-            message.set_content(
-                f"""Hello,
+            params = {
+                "from": "onboarding@resend.dev",
+                "to": [email],
+                "subject": "Notes Management System - Password Reset",
+                "text": f"""Hello,
 
 We received a request to reset your password for the Notes Management System.
 
@@ -372,20 +371,9 @@ If you did not request a password reset, please ignore this email.
 Regards,
 Notes Management System
 """
-            )
+            }
 
-            with smtplib.SMTP("smtp.gmail.com",  587, timeout=10) as server:
-                server.ehlo()
-                server.starttls()
-                server.ehlo()
-
-
-                server.login(
-                    sender_email,
-                    sender_password
-                )
-
-                server.send_message(message)
+            resend.Emails.send(params)
 
             flash(
                 "Password reset link has been sent to your email.",
@@ -404,6 +392,7 @@ Notes Management System
         return redirect(url_for("forgot_password"))
 
     return render_template("forgot_password.html")
+```
 
 
 # ================= RESET PASSWORD =================
