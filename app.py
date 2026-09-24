@@ -374,7 +374,10 @@ Notes Management System
 """
             )
 
-            with smtplib.SMTP("smtp.gmail.com", 465) as server:
+            with smtplib.SMTP("smtp.gmail.com",  587, timeout=10) as server:
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
 
 
                 server.login(
